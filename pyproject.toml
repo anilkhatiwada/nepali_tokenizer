@@ -1,6 +1,6 @@
 [project]
-name = "nepali_tokenizer"
-version = "0.1.1"
+name = "nepali-grammar-tokenizer"
+version = "0.1.2"
 description = "Deterministic, rule-based Nepali grammar tokenizer"
 authors = [{name = "Anil Khatiwada"}]
 requires-python = ">=3.9"
