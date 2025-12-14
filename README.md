@@ -1,7 +1,7 @@
 # Nepali Grammar-Based Tokenizer
 
 ![CI](https://github.com/anilkhatiwada/nepali_tokenizer/actions/workflows/ci.yml/badge.svg)
-![PyPI](https://img.shields.io/pypi/v/nepali_tokenizer.svg)
+![PyPI](https://img.shields.io/pypi/v/nepali-grammar-tokenizer.svg)
 
 Deterministic, rule-based tokenizer for Nepali (Devanagari U+0900–U+097F). Implements sentence segmentation, word segmentation, postpositions, genitives, pluralization, particles, verb morphology (root + morphemes), pronoun inflection, sandhi rules, compounds, numerals, and mixed text handling.
 
@@ -21,10 +21,12 @@ License: MIT. Contributions welcome — see `CONTRIBUTING.md` and `CODE_OF_CONDU
 - English/mixed words kept intact
 
 ## Usage
-Install:
+Install (PyPI package name):
 ```zsh
-pip install nepali_tokenizer
+pip install nepali-grammar-tokenizer
 ```
+
+Note: Import and CLI module name remains `nepali_tokenizer`.
 
 ```python
 from nepali_tokenizer import NepaliTokenizer
@@ -40,7 +42,7 @@ print(analyses[5])  # TokenAnalysis for verb
 ### CLI
 Install the CLI with pip (`nepali-tokenize` entrypoint):
 ```zsh
-pip install nepali_tokenizer
+pip install nepali-grammar-tokenizer
 ```
 
 # Debug and profiling
