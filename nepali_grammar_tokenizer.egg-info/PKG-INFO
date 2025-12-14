@@ -1,35 +1,13 @@
 Metadata-Version: 2.4
-Name: nepali_tokenizer
-Version: 0.1.0
+Name: nepali-grammar-tokenizer
+Version: 0.1.3
 Summary: Deterministic, rule-based Nepali grammar tokenizer
 Author: Anil Khatiwada
-License: MIT License
-        
-        Copyright (c) 2025 Anil Khatiwada
-        
-        Permission is hereby granted, free of charge, to any person obtaining a copy
-        of this software and associated documentation files (the "Software"), to deal
-        in the Software without restriction, including without limitation the rights
-        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        copies of the Software, and to permit persons to whom the Software is
-        furnished to do so, subject to the following conditions:
-        
-        The above copyright notice and this permission notice shall be included in all
-        copies or substantial portions of the Software.
-        
-        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-        SOFTWARE.
-        
+License-Expression: MIT
 Project-URL: Homepage, https://github.com/anilkhatiwada/nepali_tokenizer
 Project-URL: Repository, https://github.com/anilkhatiwada/nepali_tokenizer
 Project-URL: Issues, https://github.com/anilkhatiwada/nepali_tokenizer/issues
 Keywords: nepali,nlp,tokenizer,morphology,devanagari
-Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3 :: Only
 Classifier: Programming Language :: Python :: 3.9
@@ -44,6 +22,9 @@ License-File: LICENSE
 Dynamic: license-file
 
 # Nepali Grammar-Based Tokenizer
+
+![CI](https://github.com/anilkhatiwada/nepali_tokenizer/actions/workflows/ci.yml/badge.svg)
+![PyPI](https://img.shields.io/pypi/v/nepali-grammar-tokenizer.svg)
 
 Deterministic, rule-based tokenizer for Nepali (Devanagari U+0900–U+097F). Implements sentence segmentation, word segmentation, postpositions, genitives, pluralization, particles, verb morphology (root + morphemes), pronoun inflection, sandhi rules, compounds, numerals, and mixed text handling.
 
@@ -63,6 +44,13 @@ License: MIT. Contributions welcome — see `CONTRIBUTING.md` and `CODE_OF_CONDU
 - English/mixed words kept intact
 
 ## Usage
+Install (PyPI package name):
+```zsh
+pip install nepali-grammar-tokenizer
+```
+
+Note: Import and CLI module name remains `nepali_tokenizer`.
+
 ```python
 from nepali_tokenizer import NepaliTokenizer
 
@@ -75,6 +63,11 @@ print(analyses[5])  # TokenAnalysis for verb
 ```
 
 ### CLI
+Install the CLI with pip (`nepali-tokenize` entrypoint):
+```zsh
+pip install nepali-grammar-tokenizer
+```
+
 # Debug and profiling
 ```zsh
 nepali-tokenize --debug --profile <<'EOF'
