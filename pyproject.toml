@@ -5,10 +5,10 @@ description = "Deterministic, rule-based Nepali grammar tokenizer"
 authors = [{name = "Anil Khatiwada"}]
 requires-python = ">=3.9"
 readme = "README.md"
-license = {file = "LICENSE"}
+license = "MIT"
+license-files = ["LICENSE"]
 keywords = ["nepali", "nlp", "tokenizer", "morphology", "devanagari"]
 classifiers = [
-	"License :: OSI Approved :: MIT License",
 	"Programming Language :: Python :: 3",
 	"Programming Language :: Python :: 3 :: Only",
 	"Programming Language :: Python :: 3.9",
