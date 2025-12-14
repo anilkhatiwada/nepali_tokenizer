@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+nepali_tokenizer/__init__.py
+nepali_tokenizer/cli.py
+nepali_tokenizer/tokenizer.py
+nepali_tokenizer.egg-info/PKG-INFO
+nepali_tokenizer.egg-info/SOURCES.txt
+nepali_tokenizer.egg-info/dependency_links.txt
+nepali_tokenizer.egg-info/entry_points.txt
+nepali_tokenizer.egg-info/top_level.txt
+tests/test_cli.py
+tests/test_external_compounds.py
+tests/test_new_rules.py
+tests/test_tokenizer_clean.py

@@ -1,0 +1,88 @@
+Metadata-Version: 2.4
+Name: nepali_tokenizer
+Version: 0.1.0
+Summary: Deterministic, rule-based Nepali grammar tokenizer
+Author: Your Name
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+
+# Nepali Grammar-Based Tokenizer
+
+Deterministic, rule-based tokenizer for Nepali (Devanagari U+0900–U+097F). Implements sentence segmentation, word segmentation, postpositions, genitives, pluralization, particles, verb morphology (root + morphemes), pronoun inflection, sandhi rules, compounds, numerals, and mixed text handling.
+
+## Features
+- Sentence enders: `। ? ! ॥` preserved as tokens
+- Word segmentation preserving punctuation
+- Postpositions/case markers: ले, लाई, मा, बाट, देखि, सम्म, सँग, द्वारा
+- Genitives: को/का/की/के
+- Plural: हरू
+- Particles: नै, पनि, त, चाहिँ
+- Verb morphology: root + morphemes (e.g., `गर्दैछ → गर + दै + छ`)
+- Pronoun inflection & sandhi: e.g., `उनले → उनी + ले`
+- Compounds longest-match: e.g., `पुस्तकालयबाट → पुस्तकालय + बाट`
+- Nepali numerals: ०-९ kept as single tokens
+- English/mixed words kept intact
+
+## Usage
+```python
+from nepali_tokenizer import NepaliTokenizer
+
+text = "रामले विद्यालयमा किताब पढिरहेको थियो।"
+tok = NepaliTokenizer()
+flat, analyses = tok.tokenize(text, hierarchical=True)
+print(flat)
+# ['राम', 'ले', 'विद्यालय', 'मा', 'किताब', 'पढ', 'रहेको', 'थियो', '।']
+print(analyses[5])  # TokenAnalysis for verb
+```
+
+### CLI
+
+Install editable or ensure the venv is active. Then:
+
+```zsh
+# Hierarchical output (token \t root \t suffixes \t pos)
+nepali-tokenize --hier <<'EOF'
+विद्यालयमा पढ्दै छ।
+EOF
+
+# Flat tokens from a file
+nepali-tokenize path/to/input.txt
+
+# Disable certain rules (example: no compounds, no verb splits)
+nepali-tokenize --no-compounds --no-verbs --hier < input.txt
+
+# Load external compound decompositions
+cat > compounds.json <<'JSON'
+{
+	"काठमाडौं": ["काठ", "माण्डु"],
+	"नेपालगञ्ज": ["नेपाल", "गञ्ज"]
+}
+JSON
+nepali-tokenize --compounds compounds.json --hier <<'EOF'
+नेपालगञ्जमा कार्यक्रम भयो।
+EOF
+```
+
+Flags:
+- `--flat`: output only tokens (default behavior)
+- `--hier`: include per-token analyses aligned on lines
+- `--no-sentence`: disable sentence segmentation
+- `--no-case`, `--no-genitive`, `--no-plural`, `--no-particles`: disable respective suffix splits
+- `--no-verbs`: disable verb morphology splitting
+- `--no-pronouns`: disable pronoun POS hints
+- `--no-sandhi`: disable sandhi handling
+- `--no-compounds`: disable compound handling
+
+## Tests
+```bash
+python -m pytest -q
+```
+
+## Benchmark
+```zsh
+python scripts/bench.py path/to/corpus.txt --iters 100
+python scripts/bench.py path/to/corpus.txt --iters 100 --hier
+```
+
+## Notes on Ambiguity
+When ambiguity arises, longest-suffix-first is applied, followed by verb root hints and explicit sandhi patterns. Rules favor linguistically accepted Nepali morphology and preserve grammatical meaning.
