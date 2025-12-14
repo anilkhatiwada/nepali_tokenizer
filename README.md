@@ -2,6 +2,8 @@
 
 Deterministic, rule-based tokenizer for Nepali (Devanagari U+0900–U+097F). Implements sentence segmentation, word segmentation, postpositions, genitives, pluralization, particles, verb morphology (root + morphemes), pronoun inflection, sandhi rules, compounds, numerals, and mixed text handling.
 
+License: MIT. Contributions welcome — see `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`.
+
 ## Features
 - Sentence enders: `। ? ! ॥` preserved as tokens
 - Word segmentation preserving punctuation

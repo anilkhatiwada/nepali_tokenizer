@@ -2,9 +2,27 @@
 name = "nepali_tokenizer"
 version = "0.1.0"
 description = "Deterministic, rule-based Nepali grammar tokenizer"
-authors = [{name = "Your Name"}]
+authors = [{name = "Anil Khatiwada"}]
 requires-python = ">=3.9"
 readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["nepali", "nlp", "tokenizer", "morphology", "devanagari"]
+classifiers = [
+	"License :: OSI Approved :: MIT License",
+	"Programming Language :: Python :: 3",
+	"Programming Language :: Python :: 3 :: Only",
+	"Programming Language :: Python :: 3.9",
+	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python :: 3.12",
+	"Natural Language :: Nepali",
+	"Topic :: Text Processing :: Linguistic",
+]
+
+[project.urls]
+Homepage = "https://github.com/anilkhatiwada/nepali_tokenizer"
+Repository = "https://github.com/anilkhatiwada/nepali_tokenizer"
+Issues = "https://github.com/anilkhatiwada/nepali_tokenizer/issues"
 
 [project.scripts]
 nepali-tokenize = "nepali_tokenizer.cli:main"
